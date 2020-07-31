@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍展示</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <th>书名</th>
+            <th>作者</th>
+            <th>封面图片</th>
+        </thead>
+        <tbody>
+            {% for foo in book20 %}
+                <tr>
+                    <td>{{ foo.name }}</td>
+                    <td>{{ foo.author }}</td>
+                    <td><a href="{{ foo.cover_img }}">封片图片</a></td>
+{#                    {{ url_for('视图名.函数名', 变量=参数) }}#}
+                    <td><a href="{{ url_for('delete.BookDelete', bookname=foo.name) }}"><button type="button" class="btn btn-danger">删除</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
